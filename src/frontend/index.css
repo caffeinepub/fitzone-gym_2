@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    --background: 0.12 0.005 260;
+    --foreground: 0.95 0.005 260;
+    --card: 0.16 0.008 260;
+    --card-foreground: 0.95 0.005 260;
+    --popover: 0.14 0.008 260;
+    --popover-foreground: 0.95 0.005 260;
+    --primary: 0.70 0.18 46;
+    --primary-foreground: 0.10 0.005 260;
+    --secondary: 0.20 0.01 260;
+    --secondary-foreground: 0.85 0.005 260;
+    --muted: 0.20 0.008 260;
+    --muted-foreground: 0.60 0.008 260;
+    --accent: 0.65 0.20 27;
+    --accent-foreground: 0.98 0.005 260;
+    --destructive: 0.55 0.22 27;
+    --destructive-foreground: 0.98 0.005 260;
+    --border: 0.25 0.008 260;
+    --input: 0.22 0.008 260;
+    --ring: 0.70 0.18 46;
+    --chart-1: 0.70 0.18 46;
+    --chart-2: 0.65 0.20 27;
+    --chart-3: 0.55 0.15 200;
+    --chart-4: 0.75 0.15 120;
+    --chart-5: 0.65 0.18 80;
+    --sidebar: 0.14 0.008 260;
+    --sidebar-foreground: 0.95 0.005 260;
+    --sidebar-primary: 0.70 0.18 46;
+    --sidebar-primary-foreground: 0.10 0.005 260;
+    --sidebar-accent: 0.20 0.01 260;
+    --sidebar-accent-foreground: 0.85 0.005 260;
+    --sidebar-border: 0.25 0.008 260;
+    --sidebar-ring: 0.70 0.18 46;
+
+    /* Custom gym tokens */
+    --gym-orange: 0.70 0.18 46;
+    --gym-red: 0.55 0.22 27;
+    --gym-dark: 0.10 0.005 260;
+    --gym-dark-card: 0.16 0.008 260;
+    --gym-dark-card-hover: 0.20 0.010 260;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    background-color: oklch(0.12 0.005 260);
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.05em;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.05em;
+  }
+
+  .text-gym-orange {
+    color: oklch(0.70 0.18 46);
+  }
+
+  .text-gym-red {
+    color: oklch(0.55 0.22 27);
+  }
+
+  .bg-gym-orange {
+    background-color: oklch(0.70 0.18 46);
+  }
+
+  .bg-gym-red {
+    background-color: oklch(0.55 0.22 27);
+  }
+
+  .border-gym-orange {
+    border-color: oklch(0.70 0.18 46);
+  }
+
+  .hover\:bg-gym-orange-dark:hover {
+    background-color: oklch(0.62 0.18 46);
+  }
+
+  .gym-gradient-text {
+    background: linear-gradient(135deg, oklch(0.70 0.18 46), oklch(0.55 0.22 27));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gym-card-glow:hover {
+    box-shadow: 0 0 30px oklch(0.70 0.18 46 / 0.2);
+  }
+
+  /* Hero section animations */
+  @keyframes fadeSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 0 0 oklch(0.70 0.18 46 / 0.4); }
+    50% { box-shadow: 0 0 0 10px oklch(0.70 0.18 46 / 0); }
+  }
+
+  @keyframes typing-dot {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+    30% { transform: translateY(-6px); opacity: 1; }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes quoteSwap {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-fade-slide-up {
+    animation: fadeSlideUp 0.8s ease forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease forwards;
+  }
+
+  .animate-delay-200 { animation-delay: 0.2s; }
+  .animate-delay-400 { animation-delay: 0.4s; }
+  .animate-delay-600 { animation-delay: 0.6s; }
+  .animate-delay-800 { animation-delay: 0.8s; }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s infinite;
+  }
+
+  .animate-typing-dot {
+    animation: typing-dot 1.4s infinite;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.3s ease forwards;
+  }
+
+  .animate-quote-swap {
+    animation: quoteSwap 0.6s ease forwards;
+  }
+
+  .dot-delay-1 { animation-delay: 0s; }
+  .dot-delay-2 { animation-delay: 0.2s; }
+  .dot-delay-3 { animation-delay: 0.4s; }
+
+  /* Noise texture overlay */
+  .noise-texture {
+    position: relative;
+  }
+  .noise-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.04;
+    z-index: 1;
+  }
+}
